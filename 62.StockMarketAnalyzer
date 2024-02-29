@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class StockMarketAnalyzer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the initial stock price: ");
+        double initialPrice = scanner.nextDouble();
+
+        System.out.print("Enter the annual return rate (in percentage): ");
+        double returnRate = scanner.nextDouble() / 100; // Convert percentage to decimal
+
+        System.out.print("Enter the volatility (in percentage): ");
+        double volatility = scanner.nextDouble() / 100; // Convert percentage to decimal
+
+        System.out.print("Enter the number of trading days per year: ");
+        int tradingDaysPerYear = scanner.nextInt();
+
+        System.out.print("Enter the number of years to analyze: ");
+        int years = scanner.nextInt();
+
+        analyzeStockMarket(initialPrice, returnRate, volatility, tradingDaysPerYear, years);
+
+        scanner.close();
+    }
+
+    static void analyzeStockMarket(double initialPrice, double returnRate, double volatility,
+                                   int tradingDaysPerYear, int years) {
+        System.out.println("Analyzing Stock Market...");
+
+        for (int i = 1; i <= years; i++) {
+            double dailyReturn = generateRandomDailyReturn(returnRate, volatility);
+            initialPrice += initialPrice * dailyReturn;
+            System.out.println("Year " + i + ": Stock Price - " + initialPrice);
+        }
+    }
+
+    static double generateRandomDailyReturn(double returnRate, double volatility) {
+        double standardDeviation = volatility / Math.sqrt(252); // Assuming 252 trading days per year
+        return returnRate + standardDeviation * Math.random();
+    }
+}

@@ -1,0 +1,26 @@
+class DataTypeTest
+{
+public static void main(String[]args)
+{
+   byte byteVar=127;
+   short shortVar=32767;
+   int intVar=214742789;
+   long longVar=992234929479379272L;
+
+   float floatVar = 3.14f;
+   double doubleVar = 3.14168263768723;
+
+
+   char charVar='A';
+
+
+   boolean booleanVar = true;
+   System.out.println("Byte Vaiable:"+byteVar);
+   System.out.println("Short Variable:"+shortVar);
+   System.out.println("Int Variable:" + intVar);
+   System.out.println("Long Variable:" +longVar);
+
+   System.out.println("Float Variable:"+floatVar);
+   System.out.println("Double Variable:"+doubleVar);
+}
+}   

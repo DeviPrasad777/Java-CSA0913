@@ -1,0 +1,35 @@
+
+class A 
+{
+int a,b,c;
+void get()
+{
+a=10;
+b=20;
+}
+void Add()
+{
+c=a+b;
+System.out.println("ADDITION="+c);
+}
+}
+class B1	 extends A
+{
+int d,e,f;
+void get()
+{
+d=30;
+}
+void Add()
+{
+e=a+d;
+f=c+d;
+System.out.println("addition of e:"+e);
+System.out.println("addition of f:"+f);
+}
+public static void main(String[] args)
+{
+B1 obj=new B1();
+obj.get();
+obj.Add();
+}}

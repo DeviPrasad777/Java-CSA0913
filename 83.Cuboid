@@ -1,0 +1,33 @@
+class Cuboid {
+    double length;
+    double width;
+    double height;
+
+    // Constructor to initialize cuboid dimensions
+    public Cuboid(double length, double width, double height) {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
+
+    // Method to calculate the volume of the cuboid and display it
+    public void calculateAndDisplayVolume() {
+        double volume = length * width * height;
+        System.out.println("Volume: " + volume);
+    }
+
+    // Method to display cuboid details
+    public void displayDetails() {
+        System.out.println("Cuboid Dimensions:");
+        System.out.println("Length: " + length);
+        System.out.println("Width: " + width);
+        System.out.println("Height: " + height);
+        calculateAndDisplayVolume(); // Call the method to calculate and display volume
+    }
+
+    public static void main(String[] args) {
+        Cuboid cuboid = new Cuboid(5.0, 3.0, 2.0);
+
+        cuboid.displayDetails();
+    }
+}

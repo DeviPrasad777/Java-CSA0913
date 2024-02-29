@@ -1,0 +1,71 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class StockMarketPredictionApp extends JFrame {
+    private JLabel titleLabel, predictionLabel;
+    private JButton predictButton;
+    private JTextArea priceHistoryTextArea;
+
+    public StockMarketPredictionApp() {
+        setTitle("Stock Market Prediction");
+        setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        initializeComponents();
+    }
+
+    private void initializeComponents() {
+        titleLabel = new JLabel("Stock Market Prediction");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+
+        priceHistoryTextArea = new JTextArea(10, 40);
+        priceHistoryTextArea.setEditable(false);
+
+        JScrollPane scrollPane = new JScrollPane(priceHistoryTextArea);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        predictButton = new JButton("Predict Next Day's Price");
+        predictButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                predictNextDayPrice();
+            }
+        });
+
+        predictionLabel = new JLabel("Prediction:");
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+
+        panel.add(titleLabel);
+        panel.add(predictButton);
+        panel.add(predictionLabel);
+
+        Container container = getContentPane();
+        container.setLayout(new BorderLayout());
+        container.add(panel, BorderLayout.NORTH);
+        container.add(scrollPane, BorderLayout.CENTER);
+    }
+
+    private void predictNextDayPrice() {
+        // In a real-world scenario, you would use machine learning or statistical models
+        // to predict the next day's stock price based on historical data.
+        // For simplicity, this example generates a random prediction.
+
+        double randomPrediction = Math.random() * 10 + 1; // Random value between 1 and 10
+        String predictionResult = "Predicted Price for the Next Day: $" + String.format("%.2f", randomPrediction);
+
+        predictionLabel.setText(predictionResult);
+        priceHistoryTextArea.append("\n" + predictionResult);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            StockMarketPredictionApp app = new StockMarketPredictionApp();
+            app.setVisible(true);
+        });
+    }
+}

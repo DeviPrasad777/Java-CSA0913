@@ -1,0 +1,27 @@
+class box {
+    double length;
+    double width;
+    double height;
+    public box(double length, double width, double height) {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
+    public void calculateAndDisplayVolume() {
+        double volume = length * width * height;
+        System.out.println("Volume: " + volume);
+    }
+    public void displayDetails() {
+        System.out.println("box Dimensions:");
+        System.out.println("Length: " + length);
+        System.out.println("Width: " + width);
+        System.out.println("Height: " + height);
+        calculateAndDisplayVolume(); 
+    }
+
+    public static void main(String[] args) {
+        box box = new box(5.0, 3.0, 2.0);
+
+        box.displayDetails();
+    }
+}
